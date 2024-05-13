@@ -8,12 +8,11 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<User> getUser(int id) {
-        Optional<User> foundedUser = userRepository.findById(id);
-        return foundedUser;
+    public User getUser(int id) {
+        return userRepository.findById(id).get();
     }
 }

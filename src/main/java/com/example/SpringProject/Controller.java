@@ -8,10 +8,10 @@ import java.util.Optional;
 
 @org.springframework.stereotype.Controller
 public class Controller extends UserServiceImpl {
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/v1/users/{id}")
     @ResponseBody
     public User getMethod(@PathVariable Integer id) {
-        Optional<User> user = getUser(id);
-        return user.get();
+        User user = getUser(id);
+        return user;
     }
 }
